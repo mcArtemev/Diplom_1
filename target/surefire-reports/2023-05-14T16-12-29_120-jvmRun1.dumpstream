@@ -1,0 +1,33 @@
+# Created at 2023-05-14T16:12:33.769
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:397)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+
+# Created at 2023-05-14T16:12:34.358
+Unexpected IOException: 6,1,ApiTests.Order.CreateOrderTests,createNewOrderWithoutAuthWith2Ingrediens(ApiTests.Order.CreateOrderTests),null,null,null
+
+
+# Created at 2023-05-14T16:12:34.359
+Unexpected IOException: 5,1,ApiTests.Order.CreateOrderTests,createNewOrderWithAuthWithIncorrectIngredient(ApiTests.Order.CreateOrderTests),null,null,null
+
+
+# Created at 2023-05-14T16:12:34.911
+Unexpected IOException: 6,1,ApiTests.Order.CreateOrderTests,createNewOrderWithAuthWithIncorrectIngredient(ApiTests.Order.CreateOrderTests),null,null,null
+
+
+# Created at 2023-05-14T16:12:34.912
+Unexpected IOException: 5,1,ApiTests.Order.CreateOrderTests,createNewOrderWithAuthWithoutIncorrectIngredient(ApiTests.Order.CreateOrderTests),null,null,null
+
+
+# Created at 2023-05-14T16:12:35.439
+Unexpected IOException: 6,1,ApiTests.Order.CreateOrderTests,createNewOrderWithAuthWithoutIncorrectIngredient(ApiTests.Order.CreateOrderTests),null,null,null
+
+
+# Created at 2023-05-14T16:12:35.441
+Unexpected IOException: 2,1,org.apache.maven.surefire.junit4.JUnit4Provider,ApiTests.Order.CreateOrderTests,null,null,null
+
+
