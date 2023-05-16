@@ -12,7 +12,7 @@ import praktikum.IngredientType;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
-public class getReceiptUnitTests {
+public class GetReceiptUnitTests {
     private Burger burger;
 
     @Mock

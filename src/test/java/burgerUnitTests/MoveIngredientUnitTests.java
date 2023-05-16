@@ -12,27 +12,33 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class removeIngredientUnitTests {
+public class MoveIngredientUnitTests {
     private Burger burger;
 
     @Mock
-    private Ingredient mockedIngredient;
+    private Ingredient mockedIngredient1;
+
+    @Mock
+    private Ingredient mockedIngredient2;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         burger = new Burger();
         burger.ingredients = new ArrayList<>();
-        burger.ingredients.add(mockedIngredient);
+        burger.ingredients.add(mockedIngredient1);
+        burger.ingredients.add(mockedIngredient2);
     }
 
     @Test
-    public void testRemoveIngredientShouldDecrementIngredientSize() {
+    public void testMoveIngredientShoulfChangeIngredientIndex() {
         int index = 0;
+        int newIndex = 1;
 
-        burger.removeIngredient(index);
+        burger.moveIngredient(index, newIndex);
 
         List<Ingredient> ingredients = burger.ingredients;
-        assertEquals(0, ingredients.size());
+        assertEquals(mockedIngredient1, ingredients.get(newIndex));
+        assertEquals(mockedIngredient2, ingredients.get(index));
     }
 }

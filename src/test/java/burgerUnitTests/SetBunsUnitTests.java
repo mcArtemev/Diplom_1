@@ -8,7 +8,7 @@ import praktikum.Burger;
 
 import static org.junit.Assert.assertEquals;
 
-public class setBunsUnitTests {
+public class SetBunsUnitTests {
     private Burger burger;
 
     @Before

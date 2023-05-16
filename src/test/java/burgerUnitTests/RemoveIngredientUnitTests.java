@@ -7,11 +7,12 @@ import org.mockito.MockitoAnnotations;
 import praktikum.Burger;
 import praktikum.Ingredient;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class addIngredientUnitTests {
+public class RemoveIngredientUnitTests {
     private Burger burger;
 
     @Mock
@@ -21,14 +22,17 @@ public class addIngredientUnitTests {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         burger = new Burger();
+        burger.ingredients = new ArrayList<>();
+        burger.ingredients.add(mockedIngredient);
     }
 
     @Test
-    public void testAddIngredientShouldReturnIngredient() {
-        burger.addIngredient(mockedIngredient);
+    public void testRemoveIngredientShouldDecrementIngredientSize() {
+        int index = 0;
+
+        burger.removeIngredient(index);
 
         List<Ingredient> ingredients = burger.ingredients;
-        assertEquals(1, ingredients.size());
-        assertEquals(mockedIngredient, ingredients.get(0));
+        assertEquals(0, ingredients.size());
     }
 }
