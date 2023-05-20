@@ -1,0 +1,11 @@
+burgerUnitTests\getReceiptUnitTests.class
+ingredientUnitTests\getNameUnitTests.class
+bunUnitTests\getPriceUnitTests.class
+burgerUnitTests\addIngredientUnitTests.class
+burgerUnitTests\setBunsUnitTests.class
+ingredientUnitTests\getPriceUnitTests.class
+ingredientUnitTests\getTypeUnitTests.class
+bunUnitTests\getNameUnitTests.class
+burgerUnitTests\removeIngredientUnitTests.class
+burgerUnitTests\getPriceUnitTests.class
+burgerUnitTests\moveIngredientUnitTests.class
