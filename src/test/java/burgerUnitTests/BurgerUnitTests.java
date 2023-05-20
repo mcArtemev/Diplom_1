@@ -9,11 +9,16 @@ import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
-public class GetReceiptUnitTests {
+public class BurgerUnitTests {
     private Burger burger;
+
+    @Mock
+    private Ingredient mockedIngredient;
 
     @Mock
     private Bun mockedBun;
@@ -31,6 +36,26 @@ public class GetReceiptUnitTests {
         burger.setBuns(mockedBun);
         burger.addIngredient(mockedIngredient1);
         burger.addIngredient(mockedIngredient2);
+    }
+
+    @Test
+    public void testAddIngredientsShouldReturn3Ingredients() {
+        burger.addIngredient(mockedIngredient);
+
+        List<Ingredient> ingredients = burger.ingredients;
+        assertEquals(3, ingredients.size());
+        assertEquals(mockedIngredient, ingredients.get(ingredients.size()-1));
+    }
+    @Test
+    public void testGetPriceShouldReturnPrice() {
+        when(mockedBun.getPrice()).thenReturn(2.0f);
+        when(mockedIngredient1.getPrice()).thenReturn(1.0f);
+        when(mockedIngredient2.getPrice()).thenReturn(1.0f);
+
+        float expectedPrice = 2.0f * 2 + 1.0f + 1.0f;
+        float actualPrice = burger.getPrice();
+
+        assertEquals(expectedPrice, actualPrice, 0.0f);
     }
 
     @Test
@@ -53,7 +78,36 @@ public class GetReceiptUnitTests {
         String actualReceipt = burger.getReceipt();
 
         assertEquals(expectedReceipt, actualReceipt);
-        //я бы сказал, что здесь бага в форматировании float.
-        // Можно конечно в тесте дописать DecimalFormat, но не уверен, что это правильно для тестов
     }
+
+    @Test
+    public void testMoveIngredientShouldChangeIngredientIndex() {
+        int index = 0;
+        int newIndex = 1;
+
+        burger.moveIngredient(index, newIndex);
+
+        List<Ingredient> ingredients = burger.ingredients;
+        assertEquals(mockedIngredient1, ingredients.get(newIndex));
+        assertEquals(mockedIngredient2, ingredients.get(index));
+    }
+
+    @Test
+    public void testRemoveIngredientShouldDecrementIngredientSize() {
+        int index = 0;
+
+        burger.removeIngredient(index);
+
+        List<Ingredient> ingredients = burger.ingredients;
+        assertEquals(1, ingredients.size());
+    }
+
+    @Test
+    public void testSetBunsShouldReturnBlackBun() {
+        Bun bun = new Bun("Black Bun", 1.5f);
+        burger.setBuns(bun);
+
+        assertEquals(bun, burger.bun);
+    }
+
 }

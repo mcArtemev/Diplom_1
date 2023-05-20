@@ -10,8 +10,7 @@ import praktikum.IngredientType;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class GetPriceUnitTests {
-
+public class IngredientUnitTests {
     private Ingredient ingredient;
 
     @Before
@@ -20,10 +19,18 @@ public class GetPriceUnitTests {
     }
 
     @Test
-    public void getIngredientPriceShouldReturnFloat12point3(){
+    public void getIngredientNameShouldReturnKetchup(){
+        String expectedName  = "Ketchup";
+        String actualName = ingredient.getName();
+        assertEquals(expectedName, actualName);
+    }
+
+    @Test
+    public void getIngredientPriceShouldReturnPrice(){
         float expectedPrice = 1.5f;
         float actualPrice = ingredient.getPrice();
 
         assertEquals(expectedPrice, actualPrice, 0.0f);
     }
 }
+
